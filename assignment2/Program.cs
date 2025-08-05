@@ -1,78 +1,8 @@
 ﻿using System;
+using Assignment2.AbstractClasses;
+
 namespace Assignment2
 {
-  class Animal
-  {
-    public string Name { get; set; }
-
-    public Animal(string name)
-    {
-      Name = name;
-    }
-
-    public virtual void MakeSound()
-    {
-      Console.WriteLine($"{Name} makes a sound.");
-    }
-  }
-
-  class Dog : Animal
-  {
-    public Dog(string name) : base(name) { }
-
-    public override void MakeSound()
-    {
-      Console.WriteLine("Bark");
-    }
-  }
-
-  class Cat : Animal
-  {
-    public Cat(string name) : base(name) { }
-
-    public override void MakeSound()
-    {
-      Console.WriteLine("Meow");
-    }
-  }
-
-  abstract class Shape
-  {
-    public abstract double GetArea();
-  }
-
-  class Circle : Shape
-  {
-    public double Radius { get; set; }
-
-    public Circle(double radius)
-    {
-      Radius = radius;
-    }
-
-    public override double GetArea()
-    {
-      return Math.PI * Radius * Radius;
-    }
-  }
-
-  class Rectangle : Shape
-  {
-    public double Width { get; set; }
-    public double Height { get; set; }
-
-    public Rectangle(double width, double height)
-    {
-      Width = width;
-      Height = height;
-    }
-
-    public override double GetArea()
-    {
-      return Width * Height;
-    }
-  }
-
   interface IMovable
   {
     void Move();
@@ -82,15 +12,15 @@ namespace Assignment2
   {
     public void Move()
     {
-      Console.WriteLine("Car is moving.");
+      Console.WriteLine("Car is moving");
     }
   }
 
-  class Bicycle : IMovable
+  class Bicycle: IMovable
   {
     public void Move()
     {
-      Console.WriteLine("Bicycle is moving.");
+      Console.WriteLine("Bicycle is moving");
     }
   }
 
@@ -130,25 +60,20 @@ namespace Assignment2
     static void RunInheritance()
     {
       Console.WriteLine("\n---Running Inheritance & Method Overriding---");
-      Animal genericAnimal = new Animal("Generic Animal");
-      Animal dog = new Dog("Puppie");
-      Animal cat = new Cat("Kitty");
+      Inheritance.Animal animal = new Inheritance.Animal("Domestic Animal");
+      Inheritance.Animal dog = new Inheritance.Dog("Puppy");
+      Inheritance.Animal cat = new Inheritance.Cat("Kitty");
 
-      Console.WriteLine($"{genericAnimal.Name} says:");
-      genericAnimal.MakeSound();
-
-      Console.WriteLine($"{dog.Name} says:");
+      animal.MakeSound();
       dog.MakeSound();
-
-      Console.WriteLine($"{cat.Name} says:");
       cat.MakeSound();
     }
 
     static void RunAbstractClass()
     {
       Console.WriteLine("\n---Running Abstract Class---");
-      Shape circle = new Circle(5);
-      Shape rectangle = new Rectangle(4, 5);
+      Shape circle = new Circle(3);
+      Shape rectangle = new Rectangle(8, 4);
 
       Console.WriteLine($"Circle area: {circle.GetArea()}");
       Console.WriteLine($"Rectangle area: {rectangle.GetArea()}");
