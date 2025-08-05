@@ -1,53 +1,4 @@
-﻿// class Person
-// {
-//   // private string name;
-//   // public string Name 
-//   // {
-//   //   get { return name; } // getter
-//   //   set { name = value; } // setter
-//   // }
-
-//   // auto-implemented properties
-//   public string Name { get; set; }
-//   //private int age;
-//   // public int Age
-//   // { return age; }
-//   // set 
-//   // { 
-//   // if (value >= 0)
-//   //    age = value; 
-//   // else
-//   //   throw new ArgumentException("Age cannot be negative.");
-//   //}
-//   public int Age { get; set; }
-
-//   public Person(string name, int age)
-//   {
-//     Name = name;
-//     Age = age;
-//   }
-
-//   public void Introduce()
-//   {
-//     Console.WriteLine($"Hello, my name is {Name} and I am {Age} years old.");
-//   }
-// }
-
-// class Program
-// {
-//   static void Main()
-//   {
-//     // Without a constructor
-//     // Person p1 = new Person();
-//     // p1.Name = "Emman";
-//     // p1.Age = 20;
-
-//     Person p1 = new Person("Emman", 20);
-//     p1.Introduce();
-//   }
-// }
-
-using System;
+﻿using System;
 namespace Assignment2
 {
   class Animal
@@ -147,6 +98,38 @@ namespace Assignment2
   {
     static void Main()
     {
+      Console.WriteLine("n===Assignment 2 Menu ====");
+      Console.WriteLine("1. Inheritance & Method Overriding");
+      Console.WriteLine("2. Abstract Class");
+      Console.WriteLine("3. Interface");
+      Console.WriteLine("4. Exit");
+      Console.WriteLine("Choose an option: ");
+
+      string? choice = Console.ReadLine();
+
+      switch (choice)
+      {
+        case "1":
+          RunInheritance();
+          break;
+        case "2":
+          RunAbstractClass();
+          break;
+        case "3":
+          RunInterface();
+          break;
+        case "4":
+          return;
+        default:
+          Console.WriteLine("Invalid choice. Please try again.");
+          break;
+      }
+    }
+
+    
+    static void RunInheritance()
+    {
+      Console.WriteLine("\n---Running Inheritance & Method Overriding---");
       Animal genericAnimal = new Animal("Generic Animal");
       Animal dog = new Dog("Puppie");
       Animal cat = new Cat("Kitty");
@@ -159,13 +142,21 @@ namespace Assignment2
 
       Console.WriteLine($"{cat.Name} says:");
       cat.MakeSound();
+    }
 
+    static void RunAbstractClass()
+    {
+      Console.WriteLine("\n---Running Abstract Class---");
       Shape circle = new Circle(5);
       Shape rectangle = new Rectangle(4, 5);
 
       Console.WriteLine($"Circle area: {circle.GetArea()}");
       Console.WriteLine($"Rectangle area: {rectangle.GetArea()}");
+    }
 
+    static void RunInterface()
+    {
+      Console.WriteLine("\n---Running Interface---");
       IMovable car = new Car();
       IMovable bicycle = new Bicycle();
 
