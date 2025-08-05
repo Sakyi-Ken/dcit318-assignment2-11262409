@@ -28,7 +28,7 @@ namespace Assignment2
   {
     static void Main()
     {
-      Console.WriteLine("n===Assignment 2 Menu ====");
+      Console.WriteLine("\n===Assignment 2 Menu ====");
       Console.WriteLine("1. Inheritance & Method Overriding");
       Console.WriteLine("2. Abstract Class");
       Console.WriteLine("3. Interface");
