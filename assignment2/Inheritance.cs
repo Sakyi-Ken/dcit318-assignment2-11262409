@@ -1,42 +1,42 @@
 using System;
-namespace Assignment2
+namespace Assignment2.Inheritance
 {
-  public class Inheritance
+  /*
+  Can be wrapped in a any class say Inheritance 
+  The main program will access it accordingly
+  */
+  public class Animal 
   {
-   
-    public class Animal 
+    public string Name { get; set; }
+
+    public Animal(string name)
     {
-      public string Name { get; set; }
-
-      public Animal(string name)
-      {
-        Name = name;
-      }
-
-      public virtual void MakeSound() 
-      {
-        Console.WriteLine($"{Name} makes Some generic sound.");
-      }
+      Name = name;
     }
 
-    public class Dog : Animal
+    public virtual void MakeSound() 
     {
-      public Dog(string name) : base(name) { }
-
-      public override void MakeSound()
-      {
-        Console.WriteLine($"{Name} barks.");
-      }
+      Console.WriteLine($"{Name} makes Some generic sound.");
     }
+  }
 
-    public class Cat : Animal
+  public class Dog : Animal
+  {
+    public Dog(string name) : base(name) { }
+
+    public override void MakeSound()
     {
-      public Cat(string name) : base(name) { }
+      Console.WriteLine($"{Name} barks.");
+    }
+  }
 
-      public override void MakeSound()
-      {
-        Console.WriteLine($"{Name} cries Meow.");
-      }
+  public class Cat : Animal
+  {
+    public Cat(string name) : base(name) { }
+
+    public override void MakeSound()
+    {
+      Console.WriteLine($"{Name} cries Meow.");
     }
   }
 }
