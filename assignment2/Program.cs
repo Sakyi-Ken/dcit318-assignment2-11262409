@@ -1,5 +1,6 @@
 ﻿using System;
 using Assignment2.AbstractClasses;
+using Assignment2.Inheritance;
 
 namespace Assignment2
 {
@@ -60,9 +61,14 @@ namespace Assignment2
     static void RunInheritance()
     {
       Console.WriteLine("\n---Running Inheritance & Method Overriding---");
-      Inheritance.Animal animal = new Inheritance.Animal("Domestic Animal");
-      Inheritance.Animal dog = new Inheritance.Dog("Puppy");
-      Inheritance.Animal cat = new Inheritance.Cat("Kitty");
+      Animal animal = new Animal("Domestic Animal");
+      Animal dog = new Dog("Puppy");
+      Animal cat = new Cat("Kitty");
+
+      // When wrapped in a class, use the following line instead of the above three lines
+      // Say the class is called Inheritance
+      // Inheritance.Animal animal = new Inheritance.Animal("Generic Animal");
+      // Inheritance.Animal dog = new Inheritance.Dog("Dee");
 
       animal.MakeSound();
       dog.MakeSound();
